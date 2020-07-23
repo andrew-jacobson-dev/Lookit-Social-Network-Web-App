@@ -1,0 +1,119 @@
+<% if current_user %>
+<div id="navbar">
+    <ul>
+      <li><%= link_to current_user.firstname + "'s Profile", profile_index_path %></li>
+      <li><%= link_to "Chat", chat_index_path %></li>
+      <li><a href="javascript:void(0)" class="dropbtn">Settings</a>
+        <ul>
+          <li><%= link_to 'Edit Profile', edit_secure_user_path(current_user) %></li>
+        </ul>
+      </li>
+      <li><%= link_to "Log Out", logout_path, onclick:"logoutCometChat()" %></li>
+    </ul>
+</div>
+  <br></br>
+  <div id="profile-body">
+    <table id="main-table">
+      <tr>
+        <th><%=current_user.firstname + ' ' + current_user.lastname=%></th>
+        <th>Your Friends</th>
+      </tr>
+      <tr>
+        <td><div class="username">(<%= current_user.username =%>)</div></td>
+        <td rowspan="2">
+          <div id="your-friends-table">
+            <table>
+              <% if @secure_user_friendlist.present? %>
+              <tr>
+                <td><div class="sub-header-td">Name</div></td>
+                <td><div class="sub-header-td">Actions</div></td>
+              </tr>
+              <% @secure_user_friendlist.each do |friend| %>
+              <tr>
+                <td>
+                  <%= friend.firstname + ' ' + friend.lastname %> (<%= friend.username %>)
+                </td>
+                <td><%= link_to 'Delete', profile_deletefriend_path(user_to_delete: friend.id), method: :post %></td>
+              </tr>
+              <% end %>
+              <% else %>
+              <tr><div id="your-friends-message">No friends! Find friends to add below.</div></tr>
+              <% end %>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= image_tag "ajake_profile_picture.jpg" =%>
+          Bio information should go here. I don't really have too much to say...
+        </td>
+      </tr>
+      <tr>
+        <th>Uploaded Content</th>
+        <th>Friend Requests</th>
+      </tr>
+      <tr>
+        <td rowspan="4"></td>
+        <td>
+          <div id="friend-requests-table">
+            <table>
+              <% if @secure_user_friendrequests.present? %>
+              <tr>
+                <td><div class="sub-header-td">Name</div></td>
+                <td><div class="sub-header-td">Actions</div></td>
+              </tr>
+                <% @secure_user_friendrequests.each do |friendrequest| %>
+                <tr>
+                  <td>
+                    <%= friendrequest.firstname + ' ' + friendrequest.lastname %> (<%= friendrequest.username %>)
+                  </td>
+                  <td><%= link_to 'Accept', profile_acceptfriendrequest_path(user_to_add: friendrequest.id), method: :post %> | <%= link_to 'Delete', profile_deletefriendrequest_path(user_to_delete: friendrequest.id), method: :post %></td>
+                </tr>
+                <% end %>
+             <% else %>
+                <tr><div id="friend-requests-message">No friend requests</div></tr>
+             <% end %>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>Find Friends</th>
+      </tr>
+      <tr>
+        <td>
+          <div id="search-friends-form">
+            <%= form_tag(profile_index_path, method: :get) do %>
+              <%= text_field_tag :search_text, nil, placeholder: "Search by name or username" %>
+              <%= submit_tag 'Search', name: nil %>
+            <% end %>
+          </div>
+          <div id="search-friends-table">
+            <table>
+              <% if @users.present? %>
+              <tr>
+                <td><div class="sub-header-td">Name</div></td>
+                <td><div class="sub-header-td">Actions</div></td>
+              </tr>
+                <% @users.each do |user| %>
+                <tr>
+                  <td>
+                    <%= user.firstname + ' ' + user.lastname %> (<%= user.username %>)
+                  </td>
+                  <td><%= link_to 'Add Friend', profile_addfriendrequest_path(user_to_add: user.id), method: :post, onclick:"updateFindFriendsMessage()" %></td>
+                </tr>
+                <% end %>
+             <% else %>
+                <tr><div id="find-friends-message">Results will display here</div></tr>
+             <% end %>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or
+  <%= link_to "Log In", login_path %>
+<% end %>

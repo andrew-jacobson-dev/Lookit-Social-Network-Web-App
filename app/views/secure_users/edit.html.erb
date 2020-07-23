@@ -1,0 +1,25 @@
+<% if current_user %>
+<div id="navbar">
+  <ul>
+    <li><%= link_to current_user.firstname + "'s Profile", profile_index_path %></li>
+    <li><%= link_to "Chat", chat_index_path %></li>
+    <li><a href="javascript:void(0)" class="dropbtn">Settings</a>
+      <ul>
+        <li><%= link_to 'Edit Profile', edit_secure_user_path(current_user) %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Log Out", logout_path, onclick:"logoutCometChat()" %></li>
+  </ul>
+</div>
+<br></br>
+<div class="container">
+  <h3>
+    Update user information
+  </h3>
+  <%= render 'form_edit', secure_user: @secure_user %>
+  <%= button_to 'Delete Account', @secure_user, method: :delete, data: { confirm: 'Are you sure you wish to delete your profile?' } %>
+</div>
+<% else %>
+  <%= link_to "Sign Up", signup_path %> or
+  <%= link_to "Log In", login_path %>
+<% end %>

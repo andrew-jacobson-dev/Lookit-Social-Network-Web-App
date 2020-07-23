@@ -1,0 +1,258 @@
+// Main CSS for the application
+
+// Styling for the header of Lookit
+#header{
+  text-align: left;
+  background: #086f7e;
+  color: white;
+  font-size: 50px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+// Styling for the footer of Lookit
+#footer{
+  text-align: left;
+  background: #086f7e;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+// Stylings for the body of the HTML pages
+body
+{
+  background-color: #d5d5d5;
+  color: #333;
+  // margin: 33px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  width: 100%;
+}
+// Stylings for the p, ol, ul, and td tags
+p, ol, ul, td
+{
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  // border: 1px solid black;
+}
+// Stylings for pre
+pre
+{
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+// Stylings for table headers
+th
+{
+  padding-bottom: 5px;
+  padding-top: 10px;
+  color: black;
+  // border: 1px solid black;
+}
+// Stylings for table columns
+td
+{
+  padding: 0 5px 7px;
+  // border: 1px solid black;
+}
+// Stylings for the field and actions tags
+div
+{
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+// Stylings for the alert div
+#alert
+{
+  color: red;
+}
+// Stylings for the notice div
+#notice
+{
+  color: #90802f;
+}
+// Stylings for when an input field has an error
+.field_with_errors
+{
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+// Stylings for the explanation of the errors in input fields
+#error_explanation
+{
+  width: 450px;
+  border: 2px solid red;
+  // padding: 7px 7px 7px 7px;
+  margin-bottom: 30px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+// Stylings for label tags
+label
+{
+  display: block;
+}
+// Stylings for the 'Find Friends' section form
+#search-friends-form{
+  input[type=text]{
+    width: 200px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+// Stylings for the 'Your Friends' section
+#your-friends-table {
+  margin-top: 5px;
+  margin-bottom: 15px;
+
+  td a{
+    color: #086f7e;
+  }
+}
+// Stylings for the 'Friend Requests' section
+#friend-requests-table {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+  td a{
+    color: #086f7e;
+  }
+}
+// Stylings for the 'Find Friends' section
+#search-friends-table {
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  td a{
+    color: #086f7e;
+  }
+}
+// Stylings for the site's navigation bar
+#navbar {
+    // font-family: monospace;
+    // text-decoration: none;
+    padding-bottom: 25px;
+    float: right;
+}
+// Stylings for HTML ul tags
+ul {
+  // background: red;
+  list-style: inline-block;
+  margin: 0;
+  padding: 0;
+  // width: 100%;
+}
+// Stylings for HTML li tags
+li {
+  // background of nav bar items
+  // background: #086f7e;
+  display: block;
+  float: left;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+// Stylings for li link actions
+li a, li a:link, li a:hover {
+  //text color of links in nav bar items
+  color: black;
+  text-decoration: none;
+}
+
+li:hover,
+li:focus-within {
+  //color of nav bar item on hover
+  background: #086f7e;
+  cursor: pointer;
+}
+
+li:focus-within a {
+  outline: none;
+}
+
+ul li ul {
+  //drop down items
+  background: #90802f;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+  position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+  left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul,
+ul li ul:hover,
+ul li ul:focus {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  text-decoration: none;
+}
+
+ul li ul li {
+  clear: both;
+  width: 100%;
+}
+// Stylings for the profile page
+#profile-body{
+
+  #main-table{
+    list-style-type: none;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    margin-right: 30px;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  form{
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+
+  a, a:link, a:hover {
+    //text color of links in nav bar items
+    // color: black;
+    text-decoration: none;
+  }
+
+  .sub-header-td {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .username {
+    font-weight: bold;
+    color: #90802f;
+  }
+}

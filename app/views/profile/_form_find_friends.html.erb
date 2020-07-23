@@ -1,0 +1,6 @@
+<%= form_for :secure_user, :url => {:action => "findFriends"} do |f| %>
+
+    <%= f.text_field :search_text, placeholder: "Search for a user"  %>
+    <%= f.submit 'Find'%>
+
+<% end %>

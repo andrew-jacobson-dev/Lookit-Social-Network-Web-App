@@ -1,0 +1,51 @@
+/* This was copied from an excellent tutorial. Code here: https://github.com/cometchat-pro-tutorials/ruby-on-rails-chat */
+
+.messages {
+    max-height: 30rem;
+    overflow-y: scroll;
+}
+
+.message {
+    text-align: right;
+    background-color: lightpink;
+}
+.user-select {
+  /* text-transform: uppercase; */
+}
+.selected-user {
+  background-color: gray;
+  size: 5rem;
+}
+
+.user-select, .selected-user {
+  /* text-transform: uppercase; */
+  &:hover {
+    background-color: lightgray !important;
+  }
+}
+
+.messages {
+  max-height: 25rem;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+  padding: .5rem;
+}
+
+.message {
+  text-align: right;
+  background-color: #90802f;
+  margin: .5rem 0 .5rem 0;
+  width: fit-content;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+
+  &.self {
+    background-color: lightblue;
+  }
+}
+
+.sender {
+  font-size: 80%;
+}

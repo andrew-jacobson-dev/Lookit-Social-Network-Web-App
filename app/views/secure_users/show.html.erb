@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @secure_user.email %>
+</p>
+
+<%= link_to 'Edit', edit_secure_user_path(@secure_user) %> |
+<%= link_to 'Back', secure_users_path %>

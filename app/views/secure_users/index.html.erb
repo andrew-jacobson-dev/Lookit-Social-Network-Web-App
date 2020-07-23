@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Secure Users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @secure_users.each do |secure_user| %>
+      <tr>
+        <td><%= secure_user.email %></td>
+        <td><%= link_to 'Show', secure_user %></td>
+        <td><%= link_to 'Edit', edit_secure_user_path(secure_user) %></td>
+        <td><%= link_to 'Destroy', secure_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Secure User', new_secure_user_path %>
